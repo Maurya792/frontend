@@ -2,8 +2,6 @@
 
 import {
   GetUserDocument,
-  InviteUserDocument,
-  InviteUserInput,
   UserWhereUniqueInput,
 } from "../__generated__/graphql/graphql";
 import { _apolloClient } from "../lib/apollo/apollo-client/client";
@@ -16,11 +14,3 @@ export const getUser = withError(async (where: UserWhereUniqueInput) => {
   });
   return res.data.user;
 });
-
-export const inviteUser = async (data: InviteUserInput) => {
-  const res = await _apolloClient.mutate({
-    mutation: InviteUserDocument,
-    variables: { data },
-  });
-  return res;
-};

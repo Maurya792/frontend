@@ -1,5 +1,6 @@
 import { getSession as getClientSession } from "next-auth/react";
 import { getSession } from "@/lib/helpers/session";
+import { Session } from "../server";
 export const CLIENT_TOKEN_INFO: {
   authToken: string | null | undefined;
   getAuthToken: () => Promise<string | null | undefined>;
@@ -11,7 +12,7 @@ export const CLIENT_TOKEN_INFO: {
       typeof window !== "undefined" ? getClientSession : getSession;
     try {
       tokenFromSession = await sessionRetriever().then(
-        (res) => res?.accessToken
+        (res) => (res as Session)?.accessToken
       );
     } catch (err) {
       return null;

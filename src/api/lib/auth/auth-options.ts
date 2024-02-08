@@ -1,6 +1,6 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { AuthOptions } from "@/next-auth";
+// import { AuthOptions } from "@/next-auth";
 import { login, verifyAccount } from "@/api/server-actions/auth-actions";
 import { getUser } from "@/api/server-actions/user-actions";
 import { translate } from "@/lib/locales/translate";
@@ -9,6 +9,7 @@ import {
   UserFragmentDoc,
 } from "@/api/__generated__/graphql/graphql";
 import { CLIENT_TOKEN_INFO } from "../apollo/apollo-client/tokens/client-token";
+import { AuthOptions } from "next-auth";
 export const authOptions: AuthOptions = {
   pages: {
     signIn: "/login",
@@ -50,7 +51,7 @@ export const authOptions: AuthOptions = {
         email: { label: "Email", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials: { email: string; password: string }) {
+      async authorize(credentials) {
         if (credentials?.email && credentials.password) {
           const res = await login({
             username: credentials.email,

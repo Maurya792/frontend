@@ -1,8 +1,6 @@
 "use client";
-
 import { useAccessToken } from "@/hooks/useAccessToken";
 import { Suspense, useEffect } from "react";
-import { Organizations } from "./organizations";
 import Link from "next/link";
 import { useUsers } from "@/hooks/useUsers";
 import Image from "next/image";
