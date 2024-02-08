@@ -13,11 +13,14 @@ import { NEXT_PUBLIC_GRAPHQL_API } from "@/lib/constants";
 import { setContext } from "@apollo/client/link/context";
 import { getSession as getClientSession } from "next-auth/react";
 import { getSession } from "@/lib/helpers/session";
+
 const httpLink = new HttpLink({
   uri: NEXT_PUBLIC_GRAPHQL_API,
   credentials: "include",
 });
-
+export interface Session {
+  accessToken: string;
+}
 const { getClient } = registerApolloClient(() => {
   const authLink = setContext(async (_, { headers }) => {
     // Your authentication logic here
@@ -25,8 +28,9 @@ const { getClient } = registerApolloClient(() => {
     let token: string | null = null;
     const sessionRetriever =
       typeof window !== "undefined" ? getClientSession : getSession;
+
     const tokenFromSession = await sessionRetriever().then(
-      (res) => res?.accessToken
+      (res) => (res as Session)?.accessToken
     );
     if (tokenFromSession) {
       token = tokenFromSession;
@@ -45,15 +49,15 @@ const { getClient } = registerApolloClient(() => {
     cache: new NextSSRInMemoryCache(),
     credentials: "include",
     defaultOptions: {
-      mutate : {
-        errorPolicy  : 'all'
+      mutate: {
+        errorPolicy: "all",
       },
-      query : {
-        errorPolicy  : 'all'
+      query: {
+        errorPolicy: "all",
       },
-      watchQuery : {
-        errorPolicy  : 'all'
-      }
+      watchQuery: {
+        errorPolicy: "all",
+      },
     },
   };
   return new NextSSRApolloClient(apolloSSRConfig);
