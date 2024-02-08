@@ -1,0 +1,8 @@
+mutation register($data: RegisterInput!) {
+  register(data: $data) {
+    errors {
+      ...Error
+    }
+    isSuccess
+  }
+}

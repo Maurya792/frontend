@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .container {
+    @apply max-w-[1280px] w-full mx-auto my-0 px-[1.5em] md:px-[2em] py-0;
+  }
+
+}
+
+@layer utilities {
+  body {
+    @apply font-Mont;
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  /* background: radial-gradient(71.36% 71.36% at 50% 50%, rgba(57, 57, 57, 0.87) 0%, #121212 99.99%, #393939 100%); */
+  /* background-image: url('/public/images/login-bg.png'); */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  width: 100%;
+  /* height: 100vh; */
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  left: -10px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+
+::-webkit-file-upload-button {
+  display: none;
+}
+
+.profile[type="file"] {
+  color: transparent;
+}
+
+.social[type="file"] {
+  color: transparent;
+}
+
+/* slider  */
+.react-multiple-carousel__arrow--left {
+  left: calc(0% + 1px) !important;
+}
+
+.react-multiple-carousel__arrow--right {
+  right: calc(0% + 1px) !important;
+}
+
+.react-multiple-carousel__arrow {
+  background-color: white !important;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+.react-multiple-carousel__arrow::before {
+  color: black;
+}
+
+.slick-prev:before {
+  font-family: "slick";
+
+  font-size: 30px !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-next:before {
+  font-family: "slick";
+
+  font-size: 30px !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: -6% !important;
+  top: 30% !important;
+}
+
+.slick-next {
+  right: -2% !important;
+  top: 30% !important;
+}
+
+/* .slick-track{
+   width: 100% !important;
+} */
+/* .slick-slide{
+   width: 20% !important;
+} */
+
+
+/* table  */
+
+.MuiTablePagination-selectLabel {
+  font-weight: 500 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  color: black !important;
+}
+
+.MuiDataGrid-virtualScrollerRenderZone {
+  height: 300px !important;
+  overflow-y: scroll !important;
+}
+
+.MuiDataGrid-withBorderColor {
+  border-bottom-color: rgb(84, 79, 79) !important;
+}
+
+.MuiDataGrid-withBorderColor {
+  border-top-color: rgb(84, 79, 79) !important;
+}
+
+.MuiDataGrid-withBorderColor {
+  border-top-color: transparent !important;
+}
+
+
+.MuiDataGrid-virtualScrollerRenderZone>:nth-child(even) {
+  background-color: #b2d1c3 !important;
+}
+
+::-webkit-scrollbar {
+  height: 4px !important;
+  width: 4px !important;
+}
+
+.css-204u17-MuiDataGrid-main {
+  height: 300px !important;
+}
+
+.MuiDataGrid-virtualScrollerContent {
+  height: 300px !important;
+}
+
+.MuiDataGrid-virtualScroller {
+  height: 300px !important;
+}

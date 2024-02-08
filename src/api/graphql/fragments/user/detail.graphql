@@ -1,0 +1,6 @@
+fragment DetailUser on User {
+  id
+  username
+  name
+  status
+}

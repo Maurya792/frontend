@@ -1,0 +1,8 @@
+mutation verifyAccount($data: VerifyAccountInput!) {
+  verifyAccount(data: $data) {
+    errors {
+      ...Error
+    }
+    isSuccess
+  }
+}
